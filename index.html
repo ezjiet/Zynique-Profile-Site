@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zynique — custom systems and websites, plus marketing that helps you grow." />
+  <title>Zynique — Custom Systems & Marketing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner container">
+      <a href="#hero" class="brand" aria-label="Zynique home">
+        <span class="brand-mark">Z</span>
+        <span class="brand-name">Zynique</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile" hidden>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="reveal">
+        <span class="eyebrow">
+          <span class="dot"></span> Custom builds &middot; Web &middot; Marketing
+        </span>
+        <h1 class="hero-title">
+          Custom systems.<br />
+          <span class="accent">Smart marketing.</span><br />
+          Real results.
+        </h1>
+        <p class="hero-sub">
+          Zynique builds tailor-made websites and business systems, then helps you get in front of the right audience. One team, from the first line of code to the first thousand customers.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">
+            Start a project <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#services" class="btn btn-ghost">See what we do</a>
+        </div>
+
+        <div class="hero-stats">
+          <div><strong>End-to-end</strong><span>design, build, launch</span></div>
+          <div><strong>Custom-fit</strong><span>no cookie-cutter templates</span></div>
+          <div><strong>Growth-focused</strong><span>built to convert</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="reveal">
+        <span class="kicker">About</span>
+        <h2>We build the tech &mdash; and the traction.</h2>
+      </div>
+      <div class="about-copy reveal">
+        <p>
+          Zynique is a small studio focused on custom systems, websites, and marketing. We work with founders and small teams who need something built properly, without getting lost in a huge agency pipeline.
+        </p>
+        <p>
+          Every project starts with a real conversation about what you're trying to do. From there we design, build, and launch &mdash; whether that's a full internal system, a public site, or a campaign that finally makes your work visible.
+        </p>
+        <p>
+          If it can be coded, styled, or shipped, we probably enjoy doing it. And if it needs eyes on it, we know how to get those too.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">What we do</span>
+        <h2>Services built around your goals</h2>
+        <p class="section-sub">Pick one, or roll them together. Everything below can flex to your stack, budget, and timeline.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-icon"><i data-lucide="code-2"></i></div>
+          <h3>Website Customization</h3>
+          <p>Redesigns, rebuilds, and custom features on your existing site or from scratch. Fast, responsive, and easy for you to maintain.</p>
+          <ul class="card-list">
+            <li>Landing pages &amp; full sites</li>
+            <li>Theme &amp; template overhauls</li>
+            <li>Performance &amp; SEO tune-ups</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon"><i data-lucide="settings-2"></i></div>
+          <h3>System Customization</h3>
+          <p>Business systems shaped to how you actually work &mdash; not the other way around. Admin panels, dashboards, integrations, automations.</p>
+          <ul class="card-list">
+            <li>Custom dashboards &amp; portals</li>
+            <li>Workflow automation</li>
+            <li>API &amp; database integrations</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon"><i data-lucide="megaphone"></i></div>
+          <h3>Marketing Services</h3>
+          <p>Content, socials, and campaigns that put your product in front of the right people. Practical, measurable, no fluff.</p>
+          <ul class="card-list">
+            <li>Social media &amp; content</li>
+            <li>Brand &amp; visual identity</li>
+            <li>Ad campaigns &amp; funnels</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon"><i data-lucide="rocket"></i></div>
+          <h3>Launch &amp; Growth</h3>
+          <p>End-to-end launches for new products or rebrands. We handle the site, the story, and the push &mdash; so day one actually feels like day one.</p>
+          <ul class="card-list">
+            <li>Launch campaigns</li>
+            <li>Analytics setup</li>
+            <li>Ongoing iteration</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <span class="kicker">Contact</span>
+        <h2>Let's build something together.</h2>
+        <p class="contact-lede">Tell us a bit about what you need. We usually reply within one working day.</p>
+
+        <ul class="contact-info">
+          <li>
+            <i data-lucide="mail"></i>
+            <a href="mailto:hello@zynique.com">hello@zynique.com</a>
+          </li>
+          <li>
+            <i data-lucide="map-pin"></i>
+            <span>Based in Malaysia &middot; Working worldwide</span>
+          </li>
+        </ul>
+
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="Instagram" class="social"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="LinkedIn" class="social"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="GitHub" class="social"><i data-lucide="github"></i></a>
+          <a href="#" aria-label="X / Twitter" class="social"><i data-lucide="twitter"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="topic">What do you need?</label>
+          <select id="topic" name="topic">
+            <option>Website customization</option>
+            <option>System customization</option>
+            <option>Marketing</option>
+            <option>Full launch</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="A quick sentence or two about your project" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Send message <i data-lucide="send"></i>
+        </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Zynique. All rights reserved.</span>
+      <a href="#hero" class="back-top">Back to top <i data-lucide="arrow-up"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
