@@ -63,17 +63,7 @@
 
   // Generic .reveal fade + about .scrub → public/assets/js/reveal.js
 
-  // --- Cursor follower on project media -------------------------------------
-  const cursor = document.querySelector(".cursor");
-  if (cursor) {
-    const xTo = gsap.quickTo(cursor, "x", { duration: 0.35, ease: "power3" });
-    const yTo = gsap.quickTo(cursor, "y", { duration: 0.35, ease: "power3" });
-    window.addEventListener("pointermove", (e) => { xTo(e.clientX); yTo(e.clientY); });
-    document.querySelectorAll("[data-cursor]").forEach((el) => {
-      el.addEventListener("pointerenter", () => cursor.classList.add("is-on"));
-      el.addEventListener("pointerleave", () => cursor.classList.remove("is-on"));
-    });
-  }
+  // Cursor follower → public/assets/js/cursor.js
 
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();
