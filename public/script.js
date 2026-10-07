@@ -258,27 +258,9 @@
     return;
   }
 
-  // --- Hero: line-by-line type reveal (home) --------------------------------
-  if (document.querySelector(".hero-title")) {
-    gsap.from(".hero-title .line > span", { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.09, delay: 0.1 });
-    gsap.from(".hero-sub", { opacity: 0, y: 16, filter: "blur(10px)", duration: 1.1, ease: "power3.out", delay: 0.6 });
-    gsap.from(".nav", { opacity: 0, y: 20, duration: 1, delay: 0.6 });
-  }
-  if (document.querySelector(".page-hero h1")) {
-    gsap.from(".page-hero h1", {
-      yPercent: 40, opacity: 0, filter: "blur(14px)",
-      duration: 1.2, ease: "power3.out",
-    });
-    gsap.from(".page-hero .lede", {
-      opacity: 0, y: 14, filter: "blur(8px)",
-      duration: 1.1, ease: "power3.out", delay: 0.2,
-    });
-    gsap.from(".page-hero p.mono", {
-      opacity: 0, filter: "blur(6px)",
-      duration: 0.9, ease: "power2.out",
-    });
-    gsap.from(".nav", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
-  }
+  // Per-page hero entrances live in /assets/js/page-intros.js, loaded before
+  // this file so the loader's sessionStorage key is still present when it
+  // computes its delay.
 
   // Hero: parallax featured image
   if (document.querySelector(".hero-media")) {
