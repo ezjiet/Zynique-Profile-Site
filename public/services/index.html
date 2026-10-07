@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/assets/css/service-modal.css">
 </head>
 <body data-page-title="Services">
   <div class="cursor" aria-hidden="true"><span>View</span></div>
@@ -99,6 +100,12 @@
             <li>Simple pages you can show on a phone, send in a chat</li>
           </ul>
           <a class="svc-cta" href="/contact/" data-nav-title="Contact">Start a website brief <span>→</span></a>
+          <div class="svc-pricing-row">
+            <span class="svc-from"><small>From</small> <span class="svc-from-amt">RM 2,800</span></span>
+            <button type="button" class="svc-open" data-svc-open="svc-01" aria-haspopup="dialog" aria-controls="svcModal" aria-label="See pricing and details for Business Website Design">
+              <span class="svc-open-label">See pricing &amp; details</span>+
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -115,6 +122,12 @@
             <li>Migrated with no SEO drop and no downtime</li>
           </ul>
           <a class="svc-cta" href="/contact/" data-nav-title="Contact">Get a revamp quote <span>→</span></a>
+          <div class="svc-pricing-row">
+            <span class="svc-from"><small>From</small> <span class="svc-from-amt">RM 3,500</span></span>
+            <button type="button" class="svc-open" data-svc-open="svc-02" aria-haspopup="dialog" aria-controls="svcModal" aria-label="See pricing and details for Website Redesign / Revamp">
+              <span class="svc-open-label">See pricing &amp; details</span>+
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -131,6 +144,12 @@
             <li>APIs and integrations with the tools you already pay for</li>
           </ul>
           <a class="svc-cta" href="/contact/" data-nav-title="Contact">Scope a system <span>→</span></a>
+          <div class="svc-pricing-row">
+            <span class="svc-from"><small>From</small> <span class="svc-from-amt">RM 8,000</span></span>
+            <button type="button" class="svc-open" data-svc-open="svc-03" aria-haspopup="dialog" aria-controls="svcModal" aria-label="See pricing and details for Software Development">
+              <span class="svc-open-label">See pricing &amp; details</span>+
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -147,6 +166,12 @@
             <li>Landing pages built to match the ad, not fight it</li>
           </ul>
           <a class="svc-cta" href="/contact/" data-nav-title="Contact">Plan a campaign <span>→</span></a>
+          <div class="svc-pricing-row">
+            <span class="svc-from"><small>From</small> <span class="svc-from-amt">RM 1,200</span><span class="svc-from-mo">/mo</span></span>
+            <button type="button" class="svc-open" data-svc-open="svc-04" aria-haspopup="dialog" aria-controls="svcModal" aria-label="See pricing and details for Google Ads Management">
+              <span class="svc-open-label">See pricing &amp; details</span>+
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -163,6 +188,12 @@
             <li>Smart search and summarisation inside your own tools</li>
           </ul>
           <a class="svc-cta" href="/contact/" data-nav-title="Contact">Try an AI pilot <span>→</span></a>
+          <div class="svc-pricing-row">
+            <span class="svc-from"><small>From</small> <span class="svc-from-amt">RM 2,500</span></span>
+            <button type="button" class="svc-open" data-svc-open="svc-05" aria-haspopup="dialog" aria-controls="svcModal" aria-label="See pricing and details for AI Services and AI Solutions">
+              <span class="svc-open-label">See pricing &amp; details</span>+
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -179,74 +210,151 @@
             <li>name@your-business.com inboxes that work on your phone</li>
           </ul>
           <a class="svc-cta" href="/contact/" data-nav-title="Contact">Set up hosting <span>→</span></a>
+          <div class="svc-pricing-row">
+            <span class="svc-from"><small>From</small> <span class="svc-from-amt">RM 25</span><span class="svc-from-mo">/mo</span></span>
+            <button type="button" class="svc-open" data-svc-open="svc-06" aria-haspopup="dialog" aria-controls="svcModal" aria-label="See pricing and details for Domain and Web Hosting">
+              <span class="svc-open-label">See pricing &amp; details</span>+
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="pricing" id="pricing">
-      <div class="pricing-head">
-        <p class="mono">Pricing — Malaysian ringgit</p>
-        <h2>Clear prices,<br>no surprises.</h2>
-      </div>
-      <div class="price-groups">
-        <div class="price-group">
-          <p class="mono price-group-name">01 — Business Website Design</p>
-          <ul class="price-list">
-            <li class="price reveal"><h3>Starter</h3><p>3 pages, mobile-ready, template-based, contact form.</p><span class="price-amt"><small class="mono">from</small> RM 2,800</span></li>
-            <li class="price reveal"><h3>Business</h3><p>6 to 8 pages, light custom design, basic SEO, 1 month of support.</p><span class="price-amt"><small class="mono">from</small> RM 4,500</span></li>
-            <li class="price reveal"><h3>Premium</h3><p>10+ pages, fully custom, copywriting help, 3 months of support.</p><span class="price-amt"><small class="mono">from</small> RM 7,500</span></li>
-          </ul>
-        </div>
-        <div class="price-group">
-          <p class="mono price-group-name">02 — Website Redesign / Revamp</p>
-          <ul class="price-list">
-            <li class="price reveal"><h3>Refresh</h3><p>Template swap, same structure, mobile fix.</p><span class="price-amt"><small class="mono">from</small> RM 3,500</span></li>
-            <li class="price reveal"><h3>Semi-custom</h3><p>New layout, brand pass, content tidy, up to 10 pages.</p><span class="price-amt"><small class="mono">from</small> RM 6,500</span></li>
-            <li class="price reveal"><h3>Full rebuild</h3><p>New UX, content migration with SEO redirects, up to 20 pages.</p><span class="price-amt"><small class="mono">from</small> RM 12,000</span></li>
-          </ul>
-        </div>
-        <div class="price-group">
-          <p class="mono price-group-name">03 — Software Development</p>
-          <p class="price-note mono">Quoted per project · indicative ranges below · SME Digitalisation Grant (MADANI) may cover up to 50%.</p>
-          <ul class="price-list">
-            <li class="price reveal"><h3>Internal dashboard or admin panel</h3><p>Replace spreadsheets, user roles, basic reporting.</p><span class="price-amt">RM 8,000 – 15,000</span></li>
-            <li class="price reveal"><h3>POS or inventory system</h3><p>Sales, stock, suppliers, training included.</p><span class="price-amt">RM 15,000 – 35,000</span></li>
-            <li class="price reveal"><h3>Custom portal with integrations</h3><p>Accounting, payment, delivery APIs, dashboards.</p><span class="price-amt"><small class="mono">from</small> RM 25,000</span></li>
-          </ul>
-        </div>
-        <div class="price-group">
-          <p class="mono price-group-name">04 — Google Ads Management</p>
-          <p class="price-note mono">Monthly fee · ad spend billed separately · one-off setup RM 800.</p>
-          <ul class="price-list">
-            <li class="price reveal"><h3>Starter</h3><p>1 campaign, conversion tracking, monthly report. Up to RM 2,000 ad spend.</p><span class="price-amt"><small class="mono">from</small> RM 1,200<small class="mono">/mo</small></span></li>
-            <li class="price reveal"><h3>Growth</h3><p>3 campaigns, bi-weekly optimisation. Up to RM 6,000 ad spend.</p><span class="price-amt"><small class="mono">from</small> RM 2,000<small class="mono">/mo</small></span></li>
-            <li class="price reveal"><h3>Scale</h3><p>Unlimited campaigns, weekly optimisation, A/B tests, no spend cap.</p><span class="price-amt"><small class="mono">from</small> RM 3,500<small class="mono">/mo</small></span></li>
-          </ul>
-        </div>
-        <div class="price-group">
-          <p class="mono price-group-name">05 — AI Services &amp; AI Solutions</p>
-          <p class="price-note mono">AI usage fees (OpenAI, WhatsApp API, etc.) billed at cost.</p>
-          <ul class="price-list">
-            <li class="price reveal"><h3>Chatbot setup</h3><p>WhatsApp or website chatbot, trained on your FAQ and products. One-off.</p><span class="price-amt"><small class="mono">from</small> RM 2,500</span></li>
-            <li class="price reveal"><h3>Workflow automation</h3><p>Invoice-to-sheet, lead qualifier, auto-reply triage, custom builds.</p><span class="price-amt"><small class="mono">from</small> RM 5,000</span></li>
-            <li class="price reveal"><h3>Monthly care &amp; tuning</h3><p>Prompt tuning, logs review, usage reporting.</p><span class="price-amt"><small class="mono">from</small> RM 1,500<small class="mono">/mo</small></span></li>
-          </ul>
-        </div>
-        <div class="price-group">
-          <p class="mono price-group-name">06 — Domain &amp; Web Hosting</p>
-          <ul class="price-list">
-            <li class="price reveal"><h3>Domain registration</h3><p>.com from RM 60/yr · .my from RM 100/yr. We handle the setup.</p><span class="price-amt"><small class="mono">from</small> RM 60<small class="mono">/yr</small></span></li>
-            <li class="price reveal"><h3>Managed hosting</h3><p>SSL, daily backups, uptime monitoring. Billed yearly.</p><span class="price-amt"><small class="mono">from</small> RM 25<small class="mono">/mo</small></span></li>
-            <li class="price reveal"><h3>Care Plan</h3><p>Hosting + plugin updates + 1 hour of edits + uptime check each month.</p><span class="price-amt"><small class="mono">from</small> RM 150<small class="mono">/mo</small></span></li>
-          </ul>
-        </div>
-      </div>
+    <section class="price-anchor" id="pricing">
       <div class="price-offer reveal">
-        <p><strong>Founding offer:</strong> our first 3 clients get 30% off, in exchange for a testimonial and permission to show their project.</p>
+        <p><strong>Founding offer:</strong> our first 3 clients get 30% off any service above, in exchange for a testimonial and permission to show their project.</p>
         <a href="/contact/" class="btn btn-accent" data-nav-title="Contact">Claim a spot <span>→</span></a>
       </div>
     </section>
   </main>
+
+  <!-- Service detail modal: filled from a <template> on open -->
+  <div class="svc-modal" id="svcModal" role="dialog" aria-modal="true" aria-labelledby="svcSheetTitle" aria-hidden="true">
+    <div class="svc-sheet" role="document">
+      <button type="button" class="svc-close" aria-label="Close">
+        <span class="sr-only">Close</span>
+      </button>
+      <div data-svc-slot></div>
+    </div>
+  </div>
+
+  <!-- Per-service tier data -->
+  <template id="tpl-svc-01">
+    <p class="svc-sheet-num">01 / Design</p>
+    <h2 class="svc-sheet-title" id="svcSheetTitle">Business Website Design</h2>
+    <p class="svc-sheet-lede">Clear prices in Malaysian ringgit. Pick the tier that fits now — upgrade later.</p>
+    <ul class="svc-tiers">
+      <li class="svc-tier"><h3>Starter</h3><span class="svc-tier-amt"><small>from</small>RM 2,800</span><p>3 pages, mobile-ready, template-based, contact form.</p></li>
+      <li class="svc-tier"><h3>Business</h3><span class="svc-tier-amt"><small>from</small>RM 4,500</span><p>6 to 8 pages, light custom design, basic SEO, 1 month of support.</p></li>
+      <li class="svc-tier"><h3>Premium</h3><span class="svc-tier-amt"><small>from</small>RM 7,500</span><p>10+ pages, fully custom, copywriting help, 3 months of support.</p></li>
+    </ul>
+    <div class="svc-founding">
+      <span class="svc-founding-badge">30% off</span>
+      <p>Founding offer — our first 3 clients get 30% off in exchange for a testimonial and permission to show the project.</p>
+    </div>
+    <div class="svc-sheet-cta">
+      <a class="btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20brief%20a%20Business%20Website%20Design%20project." target="_blank" rel="noopener"><span class="wa-dot"></span>Chat on WhatsApp</a>
+      <a class="btn-contact" href="/contact/" data-nav-title="Contact">Start a website brief →</a>
+    </div>
+  </template>
+
+  <template id="tpl-svc-02">
+    <p class="svc-sheet-num">02 / Revamp</p>
+    <h2 class="svc-sheet-title" id="svcSheetTitle">Website Redesign / Revamp</h2>
+    <p class="svc-sheet-lede">Keep what's working, replace what isn't — no SEO drop, no downtime.</p>
+    <ul class="svc-tiers">
+      <li class="svc-tier"><h3>Refresh</h3><span class="svc-tier-amt"><small>from</small>RM 3,500</span><p>Template swap, same structure, mobile fix.</p></li>
+      <li class="svc-tier"><h3>Semi-custom</h3><span class="svc-tier-amt"><small>from</small>RM 6,500</span><p>New layout, brand pass, content tidy, up to 10 pages.</p></li>
+      <li class="svc-tier"><h3>Full rebuild</h3><span class="svc-tier-amt"><small>from</small>RM 12,000</span><p>New UX, content migration with SEO redirects, up to 20 pages.</p></li>
+    </ul>
+    <div class="svc-founding">
+      <span class="svc-founding-badge">30% off</span>
+      <p>Founding offer — our first 3 clients get 30% off in exchange for a testimonial and permission to show the project.</p>
+    </div>
+    <div class="svc-sheet-cta">
+      <a class="btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20a%20quote%20on%20a%20website%20revamp." target="_blank" rel="noopener"><span class="wa-dot"></span>Chat on WhatsApp</a>
+      <a class="btn-contact" href="/contact/" data-nav-title="Contact">Get a revamp quote →</a>
+    </div>
+  </template>
+
+  <template id="tpl-svc-03">
+    <p class="svc-sheet-num">03 / Software</p>
+    <h2 class="svc-sheet-title" id="svcSheetTitle">Software Development</h2>
+    <p class="svc-sheet-lede">Systems, portals, booking engines and dashboards shaped around how your team actually works.</p>
+    <ul class="svc-tiers">
+      <li class="svc-tier"><h3>Internal dashboard or admin panel</h3><span class="svc-tier-amt">RM 8,000 – 15,000</span><p>Replace spreadsheets, user roles, basic reporting.</p></li>
+      <li class="svc-tier"><h3>POS or inventory system</h3><span class="svc-tier-amt">RM 15,000 – 35,000</span><p>Sales, stock, suppliers, training included.</p></li>
+      <li class="svc-tier"><h3>Custom portal with integrations</h3><span class="svc-tier-amt"><small>from</small>RM 25,000</span><p>Accounting, payment, delivery APIs, dashboards.</p></li>
+    </ul>
+    <p class="svc-sheet-note">Quoted per project · indicative ranges above · SME Digitalisation Grant (MADANI) may cover up to 50%.</p>
+    <div class="svc-founding">
+      <span class="svc-founding-badge">30% off</span>
+      <p>Founding offer — our first 3 clients get 30% off in exchange for a testimonial and permission to show the project.</p>
+    </div>
+    <div class="svc-sheet-cta">
+      <a class="btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20scope%20a%20software%20system." target="_blank" rel="noopener"><span class="wa-dot"></span>Chat on WhatsApp</a>
+      <a class="btn-contact" href="/contact/" data-nav-title="Contact">Scope a system →</a>
+    </div>
+  </template>
+
+  <template id="tpl-svc-04">
+    <p class="svc-sheet-num">04 / Ads</p>
+    <h2 class="svc-sheet-title" id="svcSheetTitle">Google Ads Management</h2>
+    <p class="svc-sheet-lede">Get in front of people who are already ready to buy — no sen spent until the plan is solid.</p>
+    <ul class="svc-tiers">
+      <li class="svc-tier"><h3>Starter</h3><span class="svc-tier-amt"><small>from</small>RM 1,200<small>/mo</small></span><p>1 campaign, conversion tracking, monthly report. Up to RM 2,000 ad spend.</p></li>
+      <li class="svc-tier"><h3>Growth</h3><span class="svc-tier-amt"><small>from</small>RM 2,000<small>/mo</small></span><p>3 campaigns, bi-weekly optimisation. Up to RM 6,000 ad spend.</p></li>
+      <li class="svc-tier"><h3>Scale</h3><span class="svc-tier-amt"><small>from</small>RM 3,500<small>/mo</small></span><p>Unlimited campaigns, weekly optimisation, A/B tests, no spend cap.</p></li>
+    </ul>
+    <p class="svc-sheet-note">Monthly fee · ad spend billed separately · one-off setup RM 800.</p>
+    <div class="svc-founding">
+      <span class="svc-founding-badge">30% off</span>
+      <p>Founding offer — our first 3 clients get 30% off in exchange for a testimonial and permission to show the project.</p>
+    </div>
+    <div class="svc-sheet-cta">
+      <a class="btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20plan%20a%20Google%20Ads%20campaign." target="_blank" rel="noopener"><span class="wa-dot"></span>Chat on WhatsApp</a>
+      <a class="btn-contact" href="/contact/" data-nav-title="Contact">Plan a campaign →</a>
+    </div>
+  </template>
+
+  <template id="tpl-svc-05">
+    <p class="svc-sheet-num">05 / AI</p>
+    <h2 class="svc-sheet-title" id="svcSheetTitle">AI Services &amp; AI Solutions</h2>
+    <p class="svc-sheet-lede">Put AI to work in your daily routine — not as a demo, as a tool your team actually uses.</p>
+    <ul class="svc-tiers">
+      <li class="svc-tier"><h3>Chatbot setup</h3><span class="svc-tier-amt"><small>from</small>RM 2,500</span><p>WhatsApp or website chatbot, trained on your FAQ and products. One-off.</p></li>
+      <li class="svc-tier"><h3>Workflow automation</h3><span class="svc-tier-amt"><small>from</small>RM 5,000</span><p>Invoice-to-sheet, lead qualifier, auto-reply triage, custom builds.</p></li>
+      <li class="svc-tier"><h3>Monthly care &amp; tuning</h3><span class="svc-tier-amt"><small>from</small>RM 1,500<small>/mo</small></span><p>Prompt tuning, logs review, usage reporting.</p></li>
+    </ul>
+    <p class="svc-sheet-note">AI usage fees (OpenAI, WhatsApp API, etc.) billed at cost.</p>
+    <div class="svc-founding">
+      <span class="svc-founding-badge">30% off</span>
+      <p>Founding offer — our first 3 clients get 30% off in exchange for a testimonial and permission to show the project.</p>
+    </div>
+    <div class="svc-sheet-cta">
+      <a class="btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20try%20an%20AI%20pilot." target="_blank" rel="noopener"><span class="wa-dot"></span>Chat on WhatsApp</a>
+      <a class="btn-contact" href="/contact/" data-nav-title="Contact">Try an AI pilot →</a>
+    </div>
+  </template>
+
+  <template id="tpl-svc-06">
+    <p class="svc-sheet-num">06 / Hosting</p>
+    <h2 class="svc-sheet-title" id="svcSheetTitle">Domain &amp; Web Hosting</h2>
+    <p class="svc-sheet-lede">Domain, hosting and business email sorted — so you stop worrying about where things live.</p>
+    <ul class="svc-tiers">
+      <li class="svc-tier"><h3>Domain registration</h3><span class="svc-tier-amt"><small>from</small>RM 60<small>/yr</small></span><p>.com from RM 60/yr · .my from RM 100/yr. We handle the setup.</p></li>
+      <li class="svc-tier"><h3>Managed hosting</h3><span class="svc-tier-amt"><small>from</small>RM 25<small>/mo</small></span><p>SSL, daily backups, uptime monitoring. Billed yearly.</p></li>
+      <li class="svc-tier"><h3>Care Plan</h3><span class="svc-tier-amt"><small>from</small>RM 150<small>/mo</small></span><p>Hosting + plugin updates + 1 hour of edits + uptime check each month.</p></li>
+    </ul>
+    <div class="svc-founding">
+      <span class="svc-founding-badge">30% off</span>
+      <p>Founding offer — our first 3 clients get 30% off in exchange for a testimonial and permission to show the project.</p>
+    </div>
+    <div class="svc-sheet-cta">
+      <a class="btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20sort%20out%20domain%20and%20hosting." target="_blank" rel="noopener"><span class="wa-dot"></span>Chat on WhatsApp</a>
+      <a class="btn-contact" href="/contact/" data-nav-title="Contact">Set up hosting →</a>
+    </div>
+  </template>
   <footer class="site-foot" id="site-foot">
     <div class="foot-top">
       <h2 class="foot-headline">Let's Talk <em>Business</em></h2>
@@ -313,5 +421,6 @@
   <script src="/vendor/ScrollTrigger.min.js"></script>
   <script src="/assets/js/page-intros.js"></script>
   <script src="/script.js"></script>
+  <script src="/assets/js/service-modal.js" defer></script>
 </body>
 </html>
