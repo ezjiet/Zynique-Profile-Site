@@ -50,11 +50,15 @@
     overlay.setAttribute("aria-hidden", "true");
   };
 
+  // ease-out-cubic: fast at the start, decelerating. With a ~1.4s duration this
+  // makes the percent counter jump by 3-7 at a time early on and ease into the
+  // final digits, which reads much more natural than a linear tick.
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
   const animatePercent = (from, to, ms) => new Promise((resolve) => {
     const start = performance.now();
     const tick = (now) => {
       const t = Math.min(1, (now - start) / ms);
-      const eased = 1 - Math.pow(1 - t, 2);
+      const eased = easeOutCubic(t);
       const v = from + (to - from) * eased;
       pctEl.textContent = Math.round(v) + "%";
       setReveal(v);
@@ -89,7 +93,9 @@
       const title = a.dataset.navTitle || titleFor(url.pathname);
       try { sessionStorage.setItem(NAV_KEY, JSON.stringify({ title, at: Date.now() })); } catch {}
       showOverlay(title);
-      await animatePercent(0, 100, 700);
+      // Give the overlay a beat to fade in before the counter starts.
+      await new Promise((r) => setTimeout(r, 90));
+      await animatePercent(0, 100, 1400);
       location.href = href;
     });
 
@@ -106,7 +112,7 @@
           overlay.classList.add("is-active");
           overlay.setAttribute("aria-hidden", "false");
           window.addEventListener("load", () => {
-            setTimeout(hideOverlay, 180);
+            setTimeout(hideOverlay, 260);
           });
         }
         sessionStorage.removeItem(NAV_KEY);
