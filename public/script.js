@@ -2,6 +2,131 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   gsap.registerPlugin(ScrollTrigger);
 
+  // --- Page transition overlay ---------------------------------------------
+  // Shows a dark overlay with the destination title + a counting percentage
+  // when clicking an internal nav link, then navigates when the counter hits
+  // 100. On the next page, we show the overlay briefly and fade it out so
+  // the two halves feel like one transition. Reduced-motion skips it.
+  const overlay = document.getElementById("pageTransition");
+  const titleGhost = overlay?.querySelector(".pt-title-ghost");
+  const titleBold = overlay?.querySelector(".pt-title-bold");
+  const pctEl = overlay?.querySelector(".pt-percent");
+  const NAV_KEY = "zq-nav";
+
+  const titleFor = (href) => {
+    const path = href.replace(/#.*$/, "").replace(/\?.*$/, "");
+    const map = { "/": "Home", "/services/": "Services", "/work/": "Work",
+                  "/about/": "About", "/blog/": "Blog", "/contact/": "Contact" };
+    return map[path] || document.body.dataset.pageTitle || "Zynique";
+  };
+
+  const setOverlayTitle = (text) => {
+    if (!titleGhost || !titleBold) return;
+    titleGhost.textContent = text;
+    titleBold.textContent = text;
+  };
+
+  const showOverlay = (title) => {
+    if (!overlay) return;
+    setOverlayTitle(title);
+    pctEl.textContent = "0%";
+    overlay.classList.remove("is-leaving");
+    overlay.classList.add("is-active");
+    overlay.setAttribute("aria-hidden", "false");
+  };
+
+  const hideOverlay = () => {
+    if (!overlay) return;
+    overlay.classList.add("is-leaving");
+    overlay.classList.remove("is-active");
+    overlay.setAttribute("aria-hidden", "true");
+  };
+
+  const animatePercent = (from, to, ms) => new Promise((resolve) => {
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / ms);
+      const eased = 1 - Math.pow(1 - t, 2);
+      const v = Math.round(from + (to - from) * eased);
+      pctEl.textContent = v + "%";
+      if (t < 1) requestAnimationFrame(tick); else resolve();
+    };
+    requestAnimationFrame(tick);
+  });
+
+  const isInternal = (href) => {
+    if (!href) return false;
+    if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return false;
+    if (/^(https?:)?\/\//i.test(href)) {
+      try { return new URL(href, location.href).origin === location.origin; } catch { return false; }
+    }
+    return href.startsWith("/");
+  };
+
+  if (overlay && !reduce) {
+    // Intercept clicks on internal links
+    document.addEventListener("click", async (e) => {
+      const a = e.target.closest("a[href]");
+      if (!a) return;
+      if (a.target && a.target !== "_self") return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      const href = a.getAttribute("href");
+      if (!isInternal(href)) return;
+      const url = new URL(href, location.href);
+      // same-path hash-only navigation: let anchor smooth-scroll handle it
+      if (url.pathname === location.pathname && url.hash) return;
+
+      e.preventDefault();
+      const title = a.dataset.navTitle || titleFor(url.pathname);
+      try { sessionStorage.setItem(NAV_KEY, JSON.stringify({ title, at: Date.now() })); } catch {}
+      showOverlay(title);
+      await animatePercent(0, 100, 700);
+      location.href = href;
+    });
+
+    // Incoming side: if this page load follows a tracked click, show overlay
+    // at full for a moment then fade out as the page is ready
+    try {
+      const raw = sessionStorage.getItem(NAV_KEY);
+      if (raw) {
+        const { title, at } = JSON.parse(raw);
+        if (Date.now() - at < 10000) {
+          setOverlayTitle(title);
+          pctEl.textContent = "100%";
+          overlay.classList.add("is-active");
+          overlay.setAttribute("aria-hidden", "false");
+          window.addEventListener("load", () => {
+            setTimeout(hideOverlay, 180);
+          });
+        }
+        sessionStorage.removeItem(NAV_KEY);
+      }
+    } catch {}
+  }
+
+  // --- Language switcher stub (persist preference only, strings not yet
+  //     translated — follow-up work)
+  const langButtons = document.querySelectorAll(".foot-lang button");
+  if (langButtons.length) {
+    let saved = "en";
+    try { saved = localStorage.getItem("zq-lang") || "en"; } catch {}
+    langButtons.forEach((b) => {
+      const isSaved = b.dataset.lang === saved;
+      b.classList.toggle("is-active", isSaved);
+      b.setAttribute("aria-pressed", isSaved ? "true" : "false");
+      b.addEventListener("click", () => {
+        const lang = b.dataset.lang;
+        langButtons.forEach((x) => {
+          const on = x === b;
+          x.classList.toggle("is-active", on);
+          x.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        try { localStorage.setItem("zq-lang", lang); } catch {}
+        document.documentElement.setAttribute("lang", lang);
+      });
+    });
+  }
+
   // --- Nav: Services dropdown + mobile toggle --------------------------------
   const nav = document.getElementById("nav");
   const trigger = document.querySelector(".svc-trigger");
