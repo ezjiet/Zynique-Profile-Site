@@ -154,76 +154,7 @@ a { color: inherit; text-decoration: none; }
 .cta-mail:hover span { transform: translateX(8px); }
 .cta-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
 
-/* Site footer — "Let's Talk Business" style */
-.site-foot {
-  background: var(--dark); color: #f3f0e8;
-  padding: clamp(60px, 10vw, 140px) var(--pad) 0;
-  overflow: hidden;
-}
-.foot-top {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  grid-template-areas: "headline ." "intro actions";
-  column-gap: 48px; row-gap: 32px;
-  margin-bottom: 56px;
-}
-.foot-headline { grid-area: headline; font-size: clamp(44px, 8vw, 128px); font-weight: 800; letter-spacing: -.045em; line-height: .95; }
-.foot-headline em { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500; color: var(--accent); margin-left: .12em; }
-.foot-intro { grid-area: intro; align-self: end; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.5; color: #c9c4b8; max-width: 460px; }
-.foot-actions { grid-area: actions; display: flex; flex-wrap: wrap; gap: 12px; justify-self: end; align-self: end; }
-.foot-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 16px 26px; border-radius: 99px; font-weight: 600; font-size: 15px;
-  border: 1px solid rgba(243,240,232,.25); background: transparent; color: #f3f0e8;
-  transition: background .2s, color .2s, border-color .2s;
-}
-.foot-btn-wa { background: #f5b729; color: #1a1200; border-color: #f5b729; }
-.foot-btn-wa:hover { background: #ffc742; }
-.foot-btn-mail:hover { background: rgba(243,240,232,.1); border-color: rgba(243,240,232,.5); }
-.foot-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #1a1200; }
-
-.foot-rule { border: 0; border-top: 1px solid rgba(243,240,232,.14); margin-bottom: 56px; }
-
-.foot-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.1fr; gap: 48px;
-  margin-bottom: clamp(60px, 10vw, 120px);
-}
-.foot-bio p { color: #c9c4b8; font-size: 14px; line-height: 1.6; max-width: 300px; }
-.foot-label { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-.foot-col ul { list-style: none; display: grid; gap: 14px; }
-.foot-col ul a { color: #f3f0e8; font-size: 16px; opacity: .85; transition: opacity .2s, color .2s; }
-.foot-col ul a:hover { opacity: 1; color: var(--accent); }
-.foot-find p { margin-bottom: 14px; }
-.foot-find a strong { font-weight: 700; }
-.foot-find a:hover { color: var(--accent); }
-.foot-addr { color: #8f8a80; font-size: 14px; line-height: 1.5; }
-
-.foot-wordmark {
-  font-size: clamp(90px, 22vw, 340px);
-  font-weight: 900;
-  letter-spacing: -.055em;
-  line-height: .85;
-  color: #f3f0e8;
-  text-align: center;
-  margin: 0 calc(-1 * var(--pad));
-  padding: 0 var(--pad);
-  white-space: nowrap;
-  user-select: none;
-}
-
-.foot-base {
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px;
-  padding: 24px 0 32px; border-top: 1px solid rgba(243,240,232,.14);
-  color: #8f8a80; font-size: 13px;
-  font-family: var(--mono); letter-spacing: .04em; text-transform: uppercase;
-}
-.foot-lang { display: inline-flex; gap: 8px; align-items: center; }
-.foot-lang button {
-  background: transparent; border: 0; color: inherit; cursor: pointer;
-  font: inherit; padding: 0; transition: color .2s;
-}
-.foot-lang button:hover { color: #f3f0e8; }
-.foot-lang button.is-active { color: var(--accent); }
+/* Site footer → public/assets/css/footer.css */
 
 /* Page transition overlay */
 .page-transition {
@@ -353,16 +284,6 @@ a { color: inherit; text-decoration: none; }
   .cursor { display: none; }
   .cta-grid, .field-row { grid-template-columns: 1fr; }
 
-  .foot-top { grid-template-columns: 1fr; grid-template-areas: "headline" "intro" "actions"; gap: 24px; }
-  .foot-actions { justify-self: start; }
-  .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .foot-bio { grid-column: 1 / -1; }
-  .foot-base { font-size: 11px; }
-  .foot-wordmark { font-size: 20vw; }
-}
-
-@media (max-width: 480px) {
-  .foot-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
