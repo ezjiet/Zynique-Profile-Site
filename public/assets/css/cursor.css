@@ -1,0 +1,14 @@
+/* Cursor follower — orange disc that appears over [data-cursor] media.
+   Hidden on narrow screens. */
+
+.cursor {
+  position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none;
+  width: 88px; height: 88px; margin: -44px 0 0 -44px; border-radius: 50%;
+  background: var(--accent); color: #fff; display: grid; place-items: center;
+  font: 600 14px var(--sans); transform: scale(0); transition: transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.cursor.is-on { transform: scale(1); }
+
+@media (max-width: 760px) {
+  .cursor { display: none; }
+}

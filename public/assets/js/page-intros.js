@@ -1,9 +1,10 @@
 // Per-page hero entrance animations.
 // Each page gets its own flavour, kept to ~700ms end-to-end.
 // Reduce-motion short-circuits to instant render.
-// This file reads the "zq-nav" sessionStorage key the loader in /script.js
-// sets on outgoing clicks; it is loaded BEFORE /script.js so the key is
-// still present when the delay is computed.
+// This file reads the "zq-nav" sessionStorage key that page-transition.js
+// sets on outgoing clicks. It must load BEFORE page-transition.js so the
+// key is still present when the delay is computed (page-transition.js
+// consumes and removes the key on the incoming side).
 (() => {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (typeof gsap === "undefined") return;
