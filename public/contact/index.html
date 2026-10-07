@@ -20,48 +20,57 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body data-page-title="Contact">
   <div class="cursor" aria-hidden="true"><span>View</span></div>
+  <div class="page-transition" id="pageTransition" aria-hidden="true">
+    <div class="pt-stage">
+      <div class="pt-title">
+        <span class="pt-title-ghost" aria-hidden="true"></span>
+        <span class="pt-title-bold"></span>
+      </div>
+    </div>
+    <div class="pt-percent" aria-hidden="true">0%</div>
+  </div>
   <header class="nav" id="nav">
     <a href="/" class="logo"><span class="logo-mark"></span>ZYNIQUE</a>
     <div class="nav-wrap">
       <nav class="nav-links" aria-label="Main">
-        <a href="/">Home</a>
+        <a href="/" data-nav-title="Home">Home</a>
         <button class="svc-trigger" aria-expanded="false" aria-controls="svcDropdown" aria-haspopup="true">
           Services <span class="chev" aria-hidden="true">▾</span>
         </button>
-        <a href="/work/">Work</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        <a href="/contact/" class=is-current>Contact</a>
+        <a href="/work/" data-nav-title="Work">Work</a>
+        <a href="/about/" data-nav-title="About">About</a>
+        <a href="/blog/" data-nav-title="Blog">Blog</a>
+        <a href="/contact/" class=is-current data-nav-title="Contact">Contact</a>
       </nav>
       <div class="svc-dropdown" id="svcDropdown" role="menu">
         <p class="svc-dropdown-label">My Services</p>
         <div class="svc-grid">
-          <a href="/services/#svc-01" class="svc-cell" role="menuitem">
+          <a href="/services/#svc-01" class="svc-cell" role="menuitem" data-nav-title="Services">
             <span class="svc-num">01</span>
             <div class="svc-body"><h4>Business Website Design</h4><p>Websites that bring in WhatsApp messages</p></div>
           </a>
-          <a href="/services/#svc-02" class="svc-cell" role="menuitem">
+          <a href="/services/#svc-02" class="svc-cell" role="menuitem" data-nav-title="Services">
             <span class="svc-num">02</span>
             <div class="svc-body"><h4>Website Redesign / Revamp</h4><p>Fix an old site without starting from zero</p></div>
           </a>
-          <a href="/services/#svc-03" class="svc-cell" role="menuitem">
+          <a href="/services/#svc-03" class="svc-cell" role="menuitem" data-nav-title="Services">
             <span class="svc-num">03</span>
             <div class="svc-body"><h4>Software Development</h4><p>Systems, portals, booking, dashboards</p></div>
           </a>
-          <a href="/services/#svc-04" class="svc-cell" role="menuitem">
+          <a href="/services/#svc-04" class="svc-cell" role="menuitem" data-nav-title="Services">
             <span class="svc-num">04</span>
             <div class="svc-body"><h4>Google Ads Management</h4><p>Get in front of people ready to buy</p></div>
           </a>
-          <a href="/services/#svc-05" class="svc-cell" role="menuitem">
+          <a href="/services/#svc-05" class="svc-cell" role="menuitem" data-nav-title="Services">
             <span class="svc-num">05</span>
             <div class="svc-body"><h4>AI Services &amp; AI Solutions</h4><p>Put AI to work in your daily routine</p></div>
           </a>
-          <a href="/services/#svc-06" class="svc-cell" role="menuitem">
+          <a href="/services/#svc-06" class="svc-cell" role="menuitem" data-nav-title="Services">
             <span class="svc-num">06</span>
             <div class="svc-body"><h4>Domain &amp; Web Hosting</h4><p>Domain, hosting and business email sorted</p></div>
           </a>
@@ -69,7 +78,7 @@
       </div>
     </div>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
-    <a href="/contact/" class="btn btn-dark">Let's talk</a>
+    <a href="/contact/" class="btn btn-dark" data-nav-title="Contact">Let's talk</a>
   </header>
   <main id="top">
     <section class="page-hero">
@@ -77,46 +86,102 @@
       <h1>Have a system<br>in <span class="accent">mind?</span></h1>
       <p class="lede">Tell us what you'd like to build. The form lands in our inbox, or ping us on WhatsApp for a faster reply.</p>
     </section>
+
+    <section class="contact-section">
+      <div class="cta-grid">
+        <!-- Formspree: replace YOUR_FORM_ID with the ID from your Formspree form (formspree.io → New form) -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="field-row">
+            <label class="field"><span class="mono">Name</span><input name="name" type="text" autocomplete="name" required></label>
+            <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label class="field"><span class="mono">I need</span>
+            <select name="topic">
+              <option>A business website</option>
+              <option>A website redesign</option>
+              <option>Custom software</option>
+              <option>Google Ads</option>
+              <option>AI services</option>
+              <option>Domain &amp; hosting</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="field"><span class="mono">Tell us about it</span><textarea name="message" rows="4" required></textarea></label>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-actions">
+            <button type="submit" class="btn btn-accent">Send enquiry <span>→</span></button>
+            <p class="form-status mono" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <aside class="cta-side">
+          <p class="mono">Prefer to chat?</p>
+          <a class="btn btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Chat on WhatsApp <span>→</span></a>
+          <p class="mono">Or email</p>
+          <a class="cta-mail" href="mailto:zynique86@gmail.com">zynique86@gmail.com <span>→</span></a>
+        </aside>
+      </div>
+    </section>
   </main>
-
-  <footer class="cta" style="padding-top:60px">
-    <div class="cta-grid">
-      <!-- Formspree: replace YOUR_FORM_ID with the ID from your Formspree form (formspree.io → New form) -->
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-        <div class="field-row">
-          <label class="field"><span class="mono">Name</span><input name="name" type="text" autocomplete="name" required></label>
-          <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
-        </div>
-        <label class="field"><span class="mono">I need</span>
-          <select name="topic">
-            <option>A business website</option>
-            <option>A website redesign</option>
-            <option>Custom software</option>
-            <option>Google Ads</option>
-            <option>AI services</option>
-            <option>Domain &amp; hosting</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label class="field"><span class="mono">Tell us about it</span><textarea name="message" rows="4" required></textarea></label>
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-actions">
-          <button type="submit" class="btn btn-accent">Send enquiry <span>→</span></button>
-          <p class="form-status mono" id="formStatus" role="status" aria-live="polite"></p>
-        </div>
-      </form>
-
-      <aside class="cta-side">
-        <p class="mono">Prefer to chat?</p>
-        <a class="btn btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Chat on WhatsApp <span>→</span></a>
-        <p class="mono">Or email</p>
-        <a class="cta-mail" href="mailto:zynique86@gmail.com">zynique86@gmail.com <span>→</span></a>
-      </aside>
+  <footer class="site-foot" id="site-foot">
+    <div class="foot-top">
+      <h2 class="foot-headline">Let's Talk <em>Business</em></h2>
+      <p class="foot-intro"><em>We speak English, Mandarin and Bahasa Melayu — straightforward from day one.</em></p>
+      <div class="foot-actions">
+        <a class="foot-btn foot-btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">
+          <span class="foot-dot" aria-hidden="true"></span>WhatsApp Zynique
+        </a>
+        <a class="foot-btn foot-btn-mail" href="mailto:zynique86@gmail.com">zynique86@gmail.com</a>
+      </div>
     </div>
-    <div class="cta-foot mono">
-      <span>Based in Malaysia · Working worldwide</span>
-      <span><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="https://wa.me/60173554188" target="_blank" rel="noopener">WhatsApp</a></span>
-      <span>© <span id="year">2026</span> Zynique</span>
+
+    <hr class="foot-rule">
+
+    <div class="foot-grid">
+      <div class="foot-bio">
+        <p>Zynique is a Malaysian studio for business websites, software and the systems a business runs on — helping you get noticed, earn trust and generate enquiries.</p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-label">Navigation</p>
+        <ul>
+          <li><a href="/" data-nav-title="Home">Home</a></li>
+          <li><a href="/about/" data-nav-title="About">About</a></li>
+          <li><a href="/services/" data-nav-title="Services">My Services</a></li>
+          <li><a href="/work/" data-nav-title="Work">My Work / Portfolio</a></li>
+          <li><a href="/blog/" data-nav-title="Blog">Blog</a></li>
+          <li><a href="/contact/" data-nav-title="Contact">Contact Me</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <p class="foot-label">My Services</p>
+        <ul>
+          <li><a href="/services/#svc-01" data-nav-title="Services">Business Website Design</a></li>
+          <li><a href="/services/#svc-02" data-nav-title="Services">Website Redesign</a></li>
+          <li><a href="/services/#svc-03" data-nav-title="Services">Software Development</a></li>
+          <li><a href="/services/#svc-04" data-nav-title="Services">Google Ads</a></li>
+          <li><a href="/services/#svc-05" data-nav-title="Services">AI Solutions</a></li>
+          <li><a href="/services/#svc-06" data-nav-title="Services">Domain &amp; Hosting</a></li>
+        </ul>
+      </div>
+      <div class="foot-col foot-find">
+        <p class="foot-label">Find Me</p>
+        <p><a href="https://wa.me/60173554188" target="_blank" rel="noopener"><strong>WhatsApp +60 17-355 4188</strong></a></p>
+        <p><a href="mailto:zynique86@gmail.com"><strong>zynique86@gmail.com</strong></a></p>
+        <p class="foot-addr">Based in Malaysia<br>Working worldwide</p>
+      </div>
+    </div>
+
+    <div class="foot-wordmark" aria-hidden="true">ZYNIQUE</div>
+
+    <div class="foot-base">
+      <span>© <span id="year">2026</span> Zynique. Systems that sell.</span>
+      <span class="foot-lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active" aria-pressed="true">English</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" data-lang="ms" aria-pressed="false">Bahasa Melayu</button>
+      </span>
     </div>
   </footer>
   <script src="/vendor/lenis.min.js"></script>
