@@ -1,0 +1,40 @@
+/* Contact page — dark panel with the Formspree form, cta-side column
+   and the footer link row. */
+
+.contact-section { background: var(--dark); color: #f3f0e8; padding: 100px var(--pad); }
+.cta-mail { display: inline-flex; gap: 12px; font-size: clamp(22px, 3vw, 40px); font-weight: 600; border-bottom: 2px solid var(--accent); padding-bottom: 6px; }
+.cta-mail span { transition: transform .3s; }
+.cta-mail:hover span { transform: translateX(8px); }
+.cta-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+
+.contact-form { display: grid; gap: 28px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.field { display: grid; gap: 8px; }
+.field .mono { color: #8f8a80; }
+.field input, .field select, .field textarea {
+  width: 100%; background: transparent; color: #f3f0e8; font: 500 20px/1.4 var(--sans);
+  border: 0; border-bottom: 1px solid #444; border-radius: 0; padding: 8px 0; resize: vertical; transition: border-color .2s;
+}
+.field select option { color: var(--ink); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+.field.is-invalid input, .field.is-invalid textarea { border-color: #f87171; }
+.hp { position: absolute; left: -9999px; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.btn-accent, .btn-wa { display: inline-flex; gap: 10px; border: 0; cursor: pointer; font-family: var(--sans); font-size: 16px; padding: 16px 26px; border-radius: 99px; }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:disabled { opacity: .6; cursor: wait; }
+.btn-wa { background: #25d366; color: #0b2e17; }
+.btn-accent span, .btn-wa span { transition: transform .3s; }
+.btn-accent:hover span, .btn-wa:hover span { transform: translateX(6px); }
+.form-status { color: #c9c4b8; }
+.form-status.is-ok { color: #6ee7a0; }
+.form-status.is-err { color: #f87171; }
+.cta-side { display: grid; gap: 14px; justify-items: start; }
+.cta-side .mono { color: #8f8a80; }
+.cta-side .mono + .cta-mail { margin-top: 0; }
+.cta-side .btn-wa + .mono { margin-top: 24px; }
+.cta-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 120px; padding-top: 20px; border-top: 1px solid #333; color: #8f8a80; }
+
+@media (max-width: 760px) {
+  .cta-grid, .field-row { grid-template-columns: 1fr; }
+}
