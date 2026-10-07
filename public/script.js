@@ -59,22 +59,7 @@
 
   if (reduce) return;
 
-  // --- Horizontal reel (work) -----------------------------------------------
-  const track = document.querySelector(".reel-track");
-  if (track) {
-    const distance = () => track.scrollWidth - window.innerWidth;
-    gsap.to(track, {
-      x: () => -distance(), ease: "none",
-      scrollTrigger: {
-        trigger: ".work",
-        start: "top top",
-        end: () => "+=" + distance(),
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-  }
+  // Horizontal work reel → public/assets/js/reel.js
 
   // --- Generic text reveal: blur-to-sharp -----------------------------------
   // Site-wide typography fade: text starts low-opacity + blurred + slightly
