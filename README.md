@@ -10,10 +10,13 @@ Static one-page site (no build step). Layout follows wireframe 1a "Editorial Gia
 - About: words light up as you scroll
 - Testimonials marquee, cursor follower on project cards, hide-on-scroll nav
 
-Libraries are vendored in `vendor/` (GSAP 3.12.5, ScrollTrigger, Lenis 1.1.13).
+The site lives in `public/`. Libraries are vendored in `public/vendor/` (GSAP 3.12.5, ScrollTrigger, Lenis 1.1.13).
 All motion is skipped when the visitor has "reduce motion" turned on.
 
 ## Run locally
 ```bash
-python3 -m http.server 8080
+python3 -m http.server 8080 -d public
 ```
+
+## Deploy
+Cloudflare Workers Builds deploys `public/` as static assets using `wrangler.jsonc`.
