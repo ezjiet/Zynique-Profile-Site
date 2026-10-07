@@ -52,10 +52,11 @@
 
   const animatePercent = (from, to, ms) => new Promise((resolve) => {
     const start = performance.now();
+    // ease-out-cubic — percent jumps larger steps early and settles toward 100
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
     const tick = (now) => {
       const t = Math.min(1, (now - start) / ms);
-      const eased = 1 - Math.pow(1 - t, 2);
-      const v = from + (to - from) * eased;
+      const v = from + (to - from) * ease(t);
       pctEl.textContent = Math.round(v) + "%";
       setReveal(v);
       if (t < 1) requestAnimationFrame(tick); else resolve();
@@ -89,7 +90,7 @@
       const title = a.dataset.navTitle || titleFor(url.pathname);
       try { sessionStorage.setItem(NAV_KEY, JSON.stringify({ title, at: Date.now() })); } catch {}
       showOverlay(title);
-      await animatePercent(0, 100, 700);
+      await animatePercent(0, 100, 1400);
       location.href = href;
     });
 

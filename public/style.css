@@ -284,10 +284,10 @@ a { color: inherit; text-decoration: none; }
   background: var(--ink); color: #f3f0e8;
   display: grid; place-items: center;
   opacity: 0; pointer-events: none;
-  transition: opacity .35s ease;
+  transition: opacity .5s cubic-bezier(.4, 0, .2, 1);
 }
 .page-transition.is-active { opacity: 1; pointer-events: auto; }
-.page-transition.is-leaving { opacity: 0; transition: opacity .5s ease; }
+.page-transition.is-leaving { opacity: 0; transition: opacity .6s cubic-bezier(.4, 0, .2, 1); }
 .pt-stage {
   display: flex; align-items: center; justify-content: center;
   min-height: 1em;
@@ -296,23 +296,22 @@ a { color: inherit; text-decoration: none; }
   display: inline-grid;
   justify-items: start;
   position: relative;
+  font-family: "Inter Tight", system-ui, sans-serif;
+  font-weight: 900;
   font-size: clamp(36px, 6vw, 88px);
   line-height: 1;
-  letter-spacing: -.02em;
+  letter-spacing: -.025em;
 }
 .pt-title-ghost, .pt-title-bold {
   grid-area: 1 / 1;
   display: block;
+  /* Identical metrics so the two layers overlap pixel-for-pixel —
+     only color + clip differ, so there is no second ghost word. */
+  font: inherit;
+  letter-spacing: inherit;
 }
-.pt-title-ghost {
-  font-family: "Playfair Display", Georgia, serif;
-  font-style: italic; font-weight: 500;
-  color: rgba(243,240,232,.42);
-  letter-spacing: -.01em;
-}
+.pt-title-ghost { color: rgba(243,240,232,.22); }
 .pt-title-bold {
-  font-family: "Inter Tight", system-ui, sans-serif;
-  font-weight: 900;
   color: #f3f0e8;
   /* Clipped from right; JS reduces the inset to reveal the bold layer
      left-to-right in sync with the percentage counter. */
