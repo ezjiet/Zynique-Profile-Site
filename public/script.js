@@ -48,22 +48,9 @@
     });
   }
 
-  // Contact form (Formspree) → public/assets/js/contact-form.js
-
-  // Per-page hero entrances live in /assets/js/page-intros.js, loaded before
-  // this file so the loader's sessionStorage key is still present when it
-  // computes its delay.
-  //
-  // Home sequences (marquee, hero parallax, pin word swap, CTA title) live
-  // in /assets/js/home-sequences.js.
-
-  if (reduce) return;
-
-  // Horizontal work reel → public/assets/js/reel.js
-
-  // Generic .reveal fade + about .scrub → public/assets/js/reveal.js
-
-  // Cursor follower → public/assets/js/cursor.js
+  // Everything else — contact form, per-page intros, home sequences, work
+  // reel, generic reveals, cursor follower — lives in /assets/js/<feature>.js
+  // and loads from the page's own script tags.
 
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();
