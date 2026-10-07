@@ -1,0 +1,16 @@
+/* Horizontal work reel — pinned horizontal scroll of case cards.
+   Loaded on the /work/ page. */
+
+.work { padding: 120px 0 0; }
+.work-head { padding: 0 var(--pad) 48px; }
+.work-head h2 { margin-top: 16px; font-size: clamp(44px, 7vw, 110px); font-weight: 900; letter-spacing: -.05em; line-height: .92; }
+.reel { overflow: hidden; }
+.reel-track { display: flex; gap: 24px; padding: 0 var(--pad) 80px; width: max-content; will-change: transform; }
+.case { width: min(70vw, 760px); flex: none; }
+.case-img { height: min(60vh, 520px); border-radius: 16px; overflow: hidden; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.case:hover .case-img { transform: scale(.98); }
+.case-meta { display: flex; justify-content: space-between; margin-top: 14px; font-weight: 600; }
+
+@media (max-width: 760px) {
+  .case { width: 82vw; }
+}
