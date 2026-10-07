@@ -369,6 +369,7 @@ a { color: inherit; text-decoration: none; }
 .pricing-head h2 { margin-top: 16px; font-size: clamp(44px, 7vw, 110px); font-weight: 900; letter-spacing: -.05em; line-height: .92; }
 .price-groups { margin-top: 64px; display: grid; gap: 56px; }
 .price-group-name { color: var(--accent); }
+.price-note { margin-top: 8px; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
 .price-list { list-style: none; margin-top: 16px; border-top: 1px solid var(--ink); }
 .price {
   display: grid; grid-template-columns: 1fr 1fr auto; align-items: baseline; gap: 24px;
