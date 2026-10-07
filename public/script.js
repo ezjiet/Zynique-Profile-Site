@@ -26,10 +26,18 @@
     titleBold.textContent = text;
   };
 
+  const setReveal = (pct) => {
+    if (!titleBold) return;
+    const inset = "inset(0 " + Math.max(0, 100 - pct) + "% 0 0)";
+    titleBold.style.clipPath = inset;
+    titleBold.style.webkitClipPath = inset;
+  };
+
   const showOverlay = (title) => {
     if (!overlay) return;
     setOverlayTitle(title);
     pctEl.textContent = "0%";
+    setReveal(0);
     overlay.classList.remove("is-leaving");
     overlay.classList.add("is-active");
     overlay.setAttribute("aria-hidden", "false");
@@ -47,8 +55,9 @@
     const tick = (now) => {
       const t = Math.min(1, (now - start) / ms);
       const eased = 1 - Math.pow(1 - t, 2);
-      const v = Math.round(from + (to - from) * eased);
-      pctEl.textContent = v + "%";
+      const v = from + (to - from) * eased;
+      pctEl.textContent = Math.round(v) + "%";
+      setReveal(v);
       if (t < 1) requestAnimationFrame(tick); else resolve();
     };
     requestAnimationFrame(tick);
@@ -93,6 +102,7 @@
         if (Date.now() - at < 10000) {
           setOverlayTitle(title);
           pctEl.textContent = "100%";
+          setReveal(100);
           overlay.classList.add("is-active");
           overlay.setAttribute("aria-hidden", "false");
           window.addEventListener("load", () => {
