@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Contact — Zynique</title>
+  <meta name="description" content="Get in touch with Zynique by form, WhatsApp or email. Based in Malaysia, working worldwide.">
+  <meta property="og:title" content="Contact — Zynique">
+  <meta property="og:description" content="Get in touch — form, WhatsApp or email.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynique">
+  <meta property="og:url" content="https://zynique-profile-site.zynique86.workers.dev/">
+  <meta property="og:image" content="https://zynique-profile-site.zynique86.workers.dev/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Zynique: We build systems that sell.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"><span>View</span></div>
+  <header class="nav" id="nav">
+    <a href="/" class="logo"><span class="logo-mark"></span>ZYNIQUE</a>
+    <div class="nav-wrap">
+      <nav class="nav-links" aria-label="Main">
+        <a href="/">Home</a>
+        <button class="svc-trigger" aria-expanded="false" aria-controls="svcDropdown" aria-haspopup="true">
+          Services <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/" class=is-current>Contact</a>
+      </nav>
+      <div class="svc-dropdown" id="svcDropdown" role="menu">
+        <p class="svc-dropdown-label">My Services</p>
+        <div class="svc-grid">
+          <a href="/services/#svc-01" class="svc-cell" role="menuitem">
+            <span class="svc-num">01</span>
+            <div class="svc-body"><h4>Business Website Design</h4><p>Websites that bring in WhatsApp messages</p></div>
+          </a>
+          <a href="/services/#svc-02" class="svc-cell" role="menuitem">
+            <span class="svc-num">02</span>
+            <div class="svc-body"><h4>Website Redesign / Revamp</h4><p>Fix an old site without starting from zero</p></div>
+          </a>
+          <a href="/services/#svc-03" class="svc-cell" role="menuitem">
+            <span class="svc-num">03</span>
+            <div class="svc-body"><h4>Software Development</h4><p>Systems, portals, booking, dashboards</p></div>
+          </a>
+          <a href="/services/#svc-04" class="svc-cell" role="menuitem">
+            <span class="svc-num">04</span>
+            <div class="svc-body"><h4>Google Ads Management</h4><p>Get in front of people ready to buy</p></div>
+          </a>
+          <a href="/services/#svc-05" class="svc-cell" role="menuitem">
+            <span class="svc-num">05</span>
+            <div class="svc-body"><h4>AI Services &amp; AI Solutions</h4><p>Put AI to work in your daily routine</p></div>
+          </a>
+          <a href="/services/#svc-06" class="svc-cell" role="menuitem">
+            <span class="svc-num">06</span>
+            <div class="svc-body"><h4>Domain &amp; Web Hosting</h4><p>Domain, hosting and business email sorted</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    <a href="/contact/" class="btn btn-dark">Let's talk</a>
+  </header>
+  <main id="top">
+    <section class="page-hero">
+      <p class="mono">Contact — talk to us</p>
+      <h1>Have a system<br>in <span class="accent">mind?</span></h1>
+      <p class="lede">Tell us what you'd like to build. The form lands in our inbox, or ping us on WhatsApp for a faster reply.</p>
+    </section>
+  </main>
+
+  <footer class="cta" style="padding-top:60px">
+    <div class="cta-grid">
+      <!-- Formspree: replace YOUR_FORM_ID with the ID from your Formspree form (formspree.io → New form) -->
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field-row">
+          <label class="field"><span class="mono">Name</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label class="field"><span class="mono">I need</span>
+          <select name="topic">
+            <option>A business website</option>
+            <option>A website redesign</option>
+            <option>Custom software</option>
+            <option>Google Ads</option>
+            <option>AI services</option>
+            <option>Domain &amp; hosting</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field"><span class="mono">Tell us about it</span><textarea name="message" rows="4" required></textarea></label>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-accent">Send enquiry <span>→</span></button>
+          <p class="form-status mono" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <aside class="cta-side">
+        <p class="mono">Prefer to chat?</p>
+        <a class="btn btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Chat on WhatsApp <span>→</span></a>
+        <p class="mono">Or email</p>
+        <a class="cta-mail" href="mailto:zynique86@gmail.com">zynique86@gmail.com <span>→</span></a>
+      </aside>
+    </div>
+    <div class="cta-foot mono">
+      <span>Based in Malaysia · Working worldwide</span>
+      <span><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="https://wa.me/60173554188" target="_blank" rel="noopener">WhatsApp</a></span>
+      <span>© <span id="year">2026</span> Zynique</span>
+    </div>
+  </footer>
+  <script src="/vendor/lenis.min.js"></script>
+  <script src="/vendor/gsap.min.js"></script>
+  <script src="/vendor/ScrollTrigger.min.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
