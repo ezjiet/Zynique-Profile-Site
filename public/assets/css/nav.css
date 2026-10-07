@@ -75,21 +75,43 @@
 /* Mobile nav + dropdown collapse */
 @media (max-width: 820px) {
   .nav-toggle { display: inline-flex; }
-  .nav-wrap { position: static; }
+  /* Overlay wraps BOTH the main links and the services submenu, so the
+     dropdown opens inline inside the open menu rather than floating out
+     next to the hamburger. */
+  .nav-wrap {
+    position: fixed; inset: 76px var(--pad) auto;
+    display: none; flex-direction: column;
+    padding: 20px; border-radius: 20px;
+    background: var(--bg); border: 1px solid var(--line);
+    max-height: calc(100vh - 96px); overflow-y: auto;
+  }
+  .nav.is-open .nav-wrap { display: flex; }
   .nav-links {
-    display: none; position: fixed; inset: 76px var(--pad) auto; padding: 20px;
-    flex-direction: column; align-items: stretch; border-radius: 20px;
-    background: var(--bg); gap: 2px;
+    display: flex; flex-direction: column; align-items: stretch;
+    position: static; padding: 0; gap: 2px;
+    background: transparent; border: 0; border-radius: 0; backdrop-filter: none;
   }
-  .nav.is-open .nav-links { display: flex; }
-  .nav-links a, .nav-links button { padding: 12px 16px; font-size: 16px; justify-content: space-between; }
+  .nav-links a, .nav-links button { padding: 12px 16px; font-size: 16px; justify-content: space-between; min-height: 44px; }
   .svc-dropdown {
-    position: static; width: 100%; transform: none;
+    position: static; left: auto; top: auto; width: auto; transform: none;
     opacity: 1; visibility: visible; pointer-events: auto;
-    box-shadow: none; border: 1px solid var(--line); padding: 16px;
-    display: none; margin-top: 8px;
+    box-shadow: none; border: 0; border-top: 1px solid var(--line);
+    border-radius: 0; padding: 8px 0 0; margin: 8px 0 0;
+    display: none;
   }
+  /* .is-open variant must restate transform:none — the desktop rule for
+     .svc-dropdown.is-open sets a translateX(-50%) that would otherwise win
+     on specificity and shove the panel off-screen. */
   .svc-dropdown.is-open { display: block; transform: none; }
+  .svc-dropdown-label { padding: 4px 12px 12px; }
   .svc-grid { grid-template-columns: 1fr; }
+  .svc-cell { padding: 12px; min-height: 44px; }
   .btn-dark { margin-top: 0; }
+}
+
+/* Keep the trailing "Let's talk" pill out of the nav header on narrow
+   phones — hamburger + logo is enough, Contact is one tap away in the menu
+   and the footer CTA is unmissable. */
+@media (max-width: 500px) {
+  .nav > .btn-dark { display: none; }
 }

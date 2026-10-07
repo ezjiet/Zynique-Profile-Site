@@ -10,6 +10,7 @@
 .svc-from {
   display: inline-flex; align-items: baseline; gap: 8px;
   color: var(--ink); font-weight: 800;
+  white-space: nowrap;
 }
 .svc-from small { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 .svc-from .svc-from-amt { font-size: clamp(26px, 3.2vw, 40px); letter-spacing: -.03em; }

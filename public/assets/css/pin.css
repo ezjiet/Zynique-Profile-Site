@@ -23,7 +23,11 @@
 .pin-bar { grid-column: 2; align-self: center; height: 2px; background: #333; }
 .pin-bar span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
 
-@media (max-width: 760px) {
-  .pin-inner { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto auto; }
+/* Tablet-portrait fix — the two-column grid collides between 760 and 820,
+   so collapse to one column earlier and give the swapping description a
+   min-height so the layout doesn't jump mid-word. */
+@media (max-width: 900px) {
+  .pin-inner { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto auto; gap: 20px; }
   .pin-bar { grid-column: 1; }
+  .pin-desc { min-height: 96px; }
 }

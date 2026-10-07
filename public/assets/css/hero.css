@@ -47,8 +47,15 @@
 
 @media (max-width: 760px) {
   .hero-media { height: 56vh; }
-  .svc { grid-template-columns: 36px 1fr 24px; }
+  .svc { grid-template-columns: 36px 1fr 24px; padding: 24px 0; }
   .svc p { display: none; }
+
+  /* Soft mask so quotes marquee fades at the edges instead of hard-clipping
+     mid-letter at narrow widths. */
+  .quotes {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
