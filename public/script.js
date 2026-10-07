@@ -7,10 +7,6 @@
   // Nav chrome (dropdown, mobile toggle, lang switcher) → public/assets/js/nav.js
   const nav = document.getElementById("nav");
 
-  // --- Marquee: duplicate items (home only) ---------------------------------
-  const mq = document.querySelector(".marquee-track");
-  if (mq) mq.innerHTML += mq.innerHTML;
-
   // --- Smooth scroll (Lenis) + ScrollTrigger sync ---------------------------
   let lenis = null;
   if (!reduce) {
@@ -54,55 +50,14 @@
 
   // Contact form (Formspree) → public/assets/js/contact-form.js
 
-  if (reduce) {
-    document.querySelectorAll(".pin-word, .pin-desc p").forEach((el, i) => el.classList.toggle("is-active", i % 3 === 0));
-    return;
-  }
-
   // Per-page hero entrances live in /assets/js/page-intros.js, loaded before
   // this file so the loader's sessionStorage key is still present when it
   // computes its delay.
+  //
+  // Home sequences (marquee, hero parallax, pin word swap, CTA title) live
+  // in /assets/js/home-sequences.js.
 
-  // Hero: parallax featured image
-  if (document.querySelector(".hero-media")) {
-    gsap.to(".hero-media-inner", {
-      yPercent: -22, ease: "none",
-      scrollTrigger: { trigger: ".hero-media", start: "top bottom", end: "bottom top", scrub: true },
-    });
-    gsap.from(".hero-media", {
-      scale: 0.92, borderRadius: 40, ease: "none",
-      scrollTrigger: { trigger: ".hero-media", start: "top bottom", end: "top 30%", scrub: true },
-    });
-  }
-
-  // --- Pinned word swap (home) ----------------------------------------------
-  if (document.querySelector(".pin")) {
-    const words = gsap.utils.toArray(".pin-word");
-    const descs = gsap.utils.toArray(".pin-desc p");
-    const index = document.querySelector(".pin-index");
-    let current = 0;
-    const setStep = (n) => {
-      if (n === current) return;
-      current = n;
-      words.forEach((w, i) => {
-        w.classList.toggle("is-active", i === n);
-        w.classList.toggle("is-past", i < n);
-      });
-      descs.forEach((d, i) => d.classList.toggle("is-active", i === n));
-      index.textContent = String(n + 1).padStart(2, "0");
-    };
-    ScrollTrigger.create({
-      trigger: ".pin",
-      start: "top top",
-      end: () => "+=" + window.innerHeight * 2.2,
-      pin: true,
-      scrub: true,
-      onUpdate: (self) => {
-        setStep(Math.min(words.length - 1, Math.floor(self.progress * words.length)));
-        gsap.set(".pin-bar span", { scaleX: self.progress });
-      },
-    });
-  }
+  if (reduce) return;
 
   // --- Horizontal reel (work) -----------------------------------------------
   const track = document.querySelector(".reel-track");
