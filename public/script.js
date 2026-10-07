@@ -180,6 +180,7 @@
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
+    window.__zyniqueLenis = lenis;
   }
 
   // Anchor links go through Lenis (same-page only)

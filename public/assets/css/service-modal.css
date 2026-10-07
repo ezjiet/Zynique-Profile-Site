@@ -1,0 +1,175 @@
+/* Service detail modal — Apple-style "+" open, isolated per-service sheet.
+   Scoped to the Services page. Loaded only from /services/. */
+
+/* --- Per-service pricing teaser row (sits inside .svc-copy) --------------- */
+.svc-pricing-row {
+  margin-top: 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding-top: 20px; border-top: 1px solid var(--line);
+}
+.svc-from {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  color: var(--ink); font-weight: 800;
+}
+.svc-from small { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.svc-from .svc-from-amt { font-size: clamp(26px, 3.2vw, 40px); letter-spacing: -.03em; }
+.svc-from .svc-from-mo { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 2px; }
+
+.svc-open {
+  --d: 48px;
+  width: var(--d); height: var(--d); border-radius: 50%;
+  border: 0; background: var(--ink); color: var(--bg);
+  cursor: pointer; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 26px; font-weight: 300; line-height: 1;
+  transition: transform .25s ease, background .25s ease;
+  position: relative;
+}
+.svc-open::before {
+  content: ""; position: absolute; inset: -10px;
+  border-radius: 50%;
+}
+.svc-open:hover { background: var(--accent); transform: scale(1.08); }
+.svc-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.svc-open .svc-open-label {
+  position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+  font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap;
+  letter-spacing: .01em;
+  pointer-events: none;
+}
+@media (max-width: 760px) {
+  .svc-open .svc-open-label { display: none; }
+}
+
+/* --- Modal backdrop + sheet ------------------------------------------------ */
+.svc-modal {
+  position: fixed; inset: 0; z-index: 200;
+  display: none; align-items: center; justify-content: center;
+  padding: clamp(16px, 4vw, 56px);
+  background: rgba(20,20,20,.55);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.svc-modal.is-open { display: flex; opacity: 1; }
+
+.svc-sheet {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: calc(100vh - 80px);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 24px;
+  padding: clamp(32px, 4.8vw, 56px);
+  overflow: hidden auto;
+  transform: scale(.96) translateY(16px);
+  opacity: 0;
+  transition: transform .36s cubic-bezier(.22,.9,.3,1), opacity .28s ease;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 32px 80px -24px rgba(0,0,0,.4);
+}
+.svc-modal.is-open .svc-sheet { transform: scale(1) translateY(0); opacity: 1; }
+
+/* Visually-hidden text (screen-reader only) */
+.svc-modal .sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* Close button — Apple-style black circle, top right */
+.svc-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 0; background: var(--ink); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 2;
+  transition: transform .2s ease, background .2s ease;
+}
+.svc-close::before, .svc-close::after {
+  content: ""; position: absolute; width: 14px; height: 2px; background: #fff; border-radius: 2px;
+}
+.svc-close::before { transform: rotate(45deg); }
+.svc-close::after  { transform: rotate(-45deg); }
+.svc-close:hover { background: var(--accent); transform: scale(1.06); }
+.svc-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* --- Sheet content --------------------------------------------------------- */
+.svc-sheet-num { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.svc-sheet-title {
+  margin-top: 8px;
+  font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -.03em; line-height: 1;
+  padding-right: 56px; /* avoid close button */
+}
+.svc-sheet-lede { margin-top: 20px; color: var(--muted); font-size: clamp(15px, 1.6vw, 18px); line-height: 1.5; max-width: 56ch; }
+
+.svc-tiers { list-style: none; margin-top: 32px; padding: 0; border-top: 1px solid var(--line); }
+.svc-tier {
+  padding: 22px 0; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; align-items: baseline;
+}
+.svc-tier h3 { font-size: clamp(18px, 2.2vw, 24px); font-weight: 800; letter-spacing: -.015em; }
+.svc-tier p { grid-column: 1 / -1; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: -2px; }
+.svc-tier .svc-tier-amt { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -.02em; white-space: nowrap; text-align: right; }
+.svc-tier .svc-tier-amt small { font-size: 11px; font-weight: 500; color: var(--muted); font-family: var(--mono); margin: 0 4px; letter-spacing: .04em; }
+
+.svc-sheet-note { margin-top: 18px; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--muted); line-height: 1.5; }
+
+.svc-founding {
+  margin-top: 28px; padding: 20px 24px; border-radius: 16px;
+  background: var(--ink); color: var(--bg);
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.svc-founding .svc-founding-badge {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 99px; background: var(--accent); color: #fff;
+}
+.svc-founding p { flex: 1 1 240px; font-size: 14px; line-height: 1.5; min-width: 220px; }
+
+.svc-sheet-cta {
+  margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px;
+}
+.svc-sheet-cta .btn-wa, .svc-sheet-cta .btn-contact {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px; border-radius: 99px;
+  font-weight: 600; font-size: 14px;
+  transition: background .2s, color .2s, transform .2s;
+}
+.svc-sheet-cta .btn-wa { background: #25D366; color: #0b2117; }
+.svc-sheet-cta .btn-wa:hover { transform: translateY(-1px); }
+.svc-sheet-cta .btn-contact { background: var(--ink); color: var(--bg); }
+.svc-sheet-cta .btn-contact:hover { background: var(--accent); color: #fff; }
+.svc-sheet-cta .wa-dot { width: 8px; height: 8px; border-radius: 50%; background: #0b2117; }
+
+/* --- Mobile: full-screen sheet -------------------------------------------- */
+@media (max-width: 640px) {
+  .svc-modal { padding: 0; align-items: stretch; justify-content: stretch; }
+  .svc-sheet {
+    width: 100%; max-width: none; max-height: none; min-height: 100vh;
+    border-radius: 0; padding: 72px 20px 32px;
+    transform: translateY(100%); opacity: 1;
+  }
+  .svc-modal.is-open .svc-sheet { transform: translateY(0); }
+  .svc-close { top: 16px; right: 16px; }
+  .svc-sheet-title { padding-right: 48px; }
+  .svc-tier { grid-template-columns: 1fr; }
+  .svc-tier .svc-tier-amt { text-align: left; }
+}
+
+/* --- Reduce motion: no slide/scale, just appear --------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .svc-modal, .svc-sheet { transition: none; }
+  .svc-sheet { transform: none; opacity: 1; }
+  .svc-modal.is-open .svc-sheet { transform: none; }
+  .svc-open { transition: none; }
+  .svc-open:hover { transform: none; }
+}
+
+/* --- Scroll lock while open ----------------------------------------------- */
+html.svc-modal-open, html.svc-modal-open body { overflow: hidden; }
+
+/* --- Compact founding offer at bottom of services page -------------------- */
+.price-anchor {
+  padding: 96px var(--pad) 120px; border-top: 1px solid var(--line);
+  display: grid; place-items: center;
+}
+.price-anchor .price-offer { margin-top: 0; max-width: 820px; width: 100%; }
