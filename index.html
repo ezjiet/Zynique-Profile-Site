@@ -135,10 +135,40 @@
   <!-- 7. CTA footer -->
   <footer class="cta" id="contact">
     <h2 class="cta-title"><span class="line"><span>Have a system</span></span><span class="line"><span>in mind?</span></span></h2>
-    <a class="cta-mail" href="mailto:hello@zynique.com">hello@zynique.com <span>→</span></a>
+    <div class="cta-grid">
+      <!-- Formspree: replace YOUR_FORM_ID with the ID from your Formspree form (formspree.io → New form) -->
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field-row">
+          <label class="field"><span class="mono">Name</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label class="field"><span class="mono">I need</span>
+          <select name="topic">
+            <option>A website</option>
+            <option>Custom software</option>
+            <option>A POS system</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field"><span class="mono">Tell us about it</span><textarea name="message" rows="4" required></textarea></label>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-accent">Send enquiry <span>→</span></button>
+          <p class="form-status mono" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <aside class="cta-side">
+        <p class="mono">Prefer to chat?</p>
+        <!-- WhatsApp: replace 60123456789 with your number (country code, no + or spaces) -->
+        <a class="btn btn-wa" href="https://wa.me/60123456789?text=Hi%20Zynique%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Chat on WhatsApp <span>→</span></a>
+        <p class="mono">Or email</p>
+        <a class="cta-mail" href="mailto:hello@zynique.com">hello@zynique.com <span>→</span></a>
+      </aside>
+    </div>
     <div class="cta-foot mono">
       <span>Based in Malaysia · Working worldwide</span>
-      <span><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="#">WhatsApp</a></span>
+      <span><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="https://wa.me/60123456789" target="_blank" rel="noopener">WhatsApp</a></span>
       <span>© <span id="year">2026</span> Zynique</span>
     </div>
   </footer>
