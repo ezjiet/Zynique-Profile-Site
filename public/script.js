@@ -261,11 +261,23 @@
   // --- Hero: line-by-line type reveal (home) --------------------------------
   if (document.querySelector(".hero-title")) {
     gsap.from(".hero-title .line > span", { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.09, delay: 0.1 });
-    gsap.from(".hero-sub, .nav", { opacity: 0, y: 20, duration: 1, delay: 0.6 });
+    gsap.from(".hero-sub", { opacity: 0, y: 16, filter: "blur(10px)", duration: 1.1, ease: "power3.out", delay: 0.6 });
+    gsap.from(".nav", { opacity: 0, y: 20, duration: 1, delay: 0.6 });
   }
   if (document.querySelector(".page-hero h1")) {
-    gsap.from(".page-hero h1", { yPercent: 60, opacity: 0, duration: 1, ease: "expo.out" });
-    gsap.from(".page-hero .lede, .nav", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
+    gsap.from(".page-hero h1", {
+      yPercent: 40, opacity: 0, filter: "blur(14px)",
+      duration: 1.2, ease: "power3.out",
+    });
+    gsap.from(".page-hero .lede", {
+      opacity: 0, y: 14, filter: "blur(8px)",
+      duration: 1.1, ease: "power3.out", delay: 0.2,
+    });
+    gsap.from(".page-hero p.mono", {
+      opacity: 0, filter: "blur(6px)",
+      duration: 0.9, ease: "power2.out",
+    });
+    gsap.from(".nav", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
   }
 
   // Hero: parallax featured image
@@ -326,18 +338,28 @@
     });
   }
 
-  // --- Generic fade-up reveals ----------------------------------------------
+  // --- Generic text reveal: blur-to-sharp -----------------------------------
+  // Site-wide typography fade: text starts low-opacity + blurred + slightly
+  // offset, then snaps into focus as it crosses the fold. One effect, applied
+  // to anything with .reveal (except hero lines, which have their own
+  // mask-up signature).
   gsap.utils.toArray(".reveal").forEach((el) => {
     if (el.closest(".hero")) return;
-    gsap.from(el, { opacity: 0, y: 40, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } });
+    gsap.from(el, {
+      opacity: 0, y: 22, filter: "blur(10px)",
+      duration: 1.1, ease: "power3.out",
+      scrollTrigger: { trigger: el, start: "top 88%" },
+    });
   });
 
-  // --- About: words light up as you scroll ----------------------------------
+  // --- About scrub: word-by-word blur-to-sharp ------------------------------
   const scrub = document.querySelector(".scrub");
   if (scrub) {
     scrub.innerHTML = scrub.textContent.trim().split(/\s+/).map((w) => `<span class="w">${w}</span>`).join(" ");
+    gsap.set(".scrub .w", { opacity: 0.15, filter: "blur(6px)" });
     gsap.to(".scrub .w", {
-      opacity: 1, stagger: 0.1, ease: "none",
+      opacity: 1, filter: "blur(0px)",
+      stagger: 0.1, ease: "none",
       scrollTrigger: { trigger: scrub, start: "top 80%", end: "bottom 45%", scrub: true },
     });
   }
