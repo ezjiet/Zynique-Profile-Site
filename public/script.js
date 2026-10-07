@@ -46,6 +46,44 @@
     });
   });
 
+  // Contact form: submit to Formspree without leaving the page
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  const setStatus = (text, kind) => {
+    status.textContent = text;
+    status.className = "form-status mono" + (kind ? " is-" + kind : "");
+  };
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let firstInvalid = null;
+    form.querySelectorAll("[required]").forEach((el) => {
+      const ok = el.value.trim() !== "" && (el.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      el.closest(".field").classList.toggle("is-invalid", !ok);
+      if (!ok && !firstInvalid) firstInvalid = el;
+    });
+    if (firstInvalid) {
+      setStatus("Please fill in your name, a valid email and a message.", "err");
+      firstInvalid.focus();
+      return;
+    }
+    const button = form.querySelector("button[type=submit]");
+    button.disabled = true;
+    setStatus("Sending…");
+    try {
+      const res = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      setStatus("Thanks! We'll be in touch soon.", "ok");
+    } catch (err) {
+      setStatus("Something went wrong. Please try WhatsApp or email us instead.", "err");
+    } finally {
+      button.disabled = false;
+    }
+  });
+  form.querySelectorAll("input, textarea").forEach((el) =>
+    el.addEventListener("input", () => el.closest(".field")?.classList.remove("is-invalid"))
+  );
+
   if (reduce) {
     document.querySelectorAll(".pin-word, .pin-desc p").forEach((el, i) => el.classList.toggle("is-active", i % 3 === 0));
     return;

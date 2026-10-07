@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zynique — Websites, Software & POS</title>
   <meta name="description" content="Zynique designs and builds websites, custom software and POS systems for brands that mean it. Based in Malaysia, working worldwide.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zynique">
+  <meta property="og:title" content="Zynique — Websites, Software & POS">
+  <meta property="og:description" content="We build systems that sell. Websites, custom software and POS for brands that mean it. Based in Malaysia, working worldwide.">
+  <meta property="og:url" content="https://zynique-profile-site.zynique86.workers.dev/">
+  <meta property="og:image" content="https://zynique-profile-site.zynique86.workers.dev/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Zynique: We build systems that sell.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,6 +32,7 @@
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="btn btn-dark">Let's talk</a>
@@ -130,15 +144,78 @@
         </div>
       </div>
     </section>
+    <!-- 7. Pricing -->
+    <section class="pricing" id="pricing">
+      <div class="pricing-head">
+        <p class="mono">Pricing — Malaysian ringgit</p>
+        <h2>Clear prices,<br>no surprises.</h2>
+      </div>
+      <div class="price-groups">
+        <div class="price-group">
+          <p class="mono price-group-name">01 — Build</p>
+          <ul class="price-list">
+            <li class="price reveal"><h3>Landing page</h3><p>1 page, mobile-friendly, contact form.</p><span class="price-amt"><small class="mono">from</small> RM 1,500</span></li>
+            <li class="price reveal"><h3>Business website</h3><p>5 to 8 pages, basic SEO, 1 month of support.</p><span class="price-amt"><small class="mono">from</small> RM 3,500</span></li>
+            <li class="price reveal"><h3>Custom system</h3><p>Admin panels, POS, portals. Quoted per project.</p><span class="price-amt"><small class="mono">from</small> RM 8,000</span></li>
+          </ul>
+        </div>
+        <div class="price-group">
+          <p class="mono price-group-name">02 — Grow</p>
+          <ul class="price-list">
+            <li class="price reveal"><h3>Social media management</h3><p>12 to 16 posts a month.</p><span class="price-amt"><small class="mono">from</small> RM 1,200<small class="mono">/mo</small></span></li>
+            <li class="price reveal"><h3>Ads management</h3><p>Campaign setup and tuning, plus your ad budget.</p><span class="price-amt"><small class="mono">from</small> RM 800<small class="mono">/mo</small></span></li>
+          </ul>
+        </div>
+        <div class="price-group">
+          <p class="mono price-group-name">03 — Maintain</p>
+          <ul class="price-list">
+            <li class="price reveal"><h3>Care plan</h3><p>Hosting, updates and small edits.</p><span class="price-amt">RM 150<small class="mono">/mo</small></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-offer reveal">
+        <p><strong>Founding offer:</strong> our first 3 clients get 30% off, in exchange for a testimonial and permission to show their project.</p>
+        <a href="#contact" class="btn btn-accent">Claim a spot <span>→</span></a>
+      </div>
+    </section>
   </main>
 
-  <!-- 7. CTA footer -->
+  <!-- 8. CTA footer -->
   <footer class="cta" id="contact">
     <h2 class="cta-title"><span class="line"><span>Have a system</span></span><span class="line"><span>in mind?</span></span></h2>
-    <a class="cta-mail" href="mailto:hello@zynique.com">hello@zynique.com <span>→</span></a>
+    <div class="cta-grid">
+      <!-- Formspree: replace YOUR_FORM_ID with the ID from your Formspree form (formspree.io → New form) -->
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field-row">
+          <label class="field"><span class="mono">Name</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label class="field"><span class="mono">I need</span>
+          <select name="topic">
+            <option>A website</option>
+            <option>Custom software</option>
+            <option>A POS system</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field"><span class="mono">Tell us about it</span><textarea name="message" rows="4" required></textarea></label>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-accent">Send enquiry <span>→</span></button>
+          <p class="form-status mono" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <aside class="cta-side">
+        <p class="mono">Prefer to chat?</p>
+            <a class="btn btn-wa" href="https://wa.me/60173554188?text=Hi%20Zynique%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener">Chat on WhatsApp <span>→</span></a>
+        <p class="mono">Or email</p>
+        <a class="cta-mail" href="mailto:zynique86@gmail.com">zynique86@gmail.com <span>→</span></a>
+      </aside>
+    </div>
     <div class="cta-foot mono">
       <span>Based in Malaysia · Working worldwide</span>
-      <span><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="#">WhatsApp</a></span>
+      <span><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="https://wa.me/60173554188" target="_blank" rel="noopener">WhatsApp</a></span>
       <span>© <span id="year">2026</span> Zynique</span>
     </div>
   </footer>
