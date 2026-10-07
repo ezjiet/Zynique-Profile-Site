@@ -61,39 +61,7 @@
 
   // Horizontal work reel → public/assets/js/reel.js
 
-  // --- Generic text reveal: blur-to-sharp -----------------------------------
-  // Site-wide typography fade: text starts low-opacity + blurred + slightly
-  // offset, then snaps into focus as it crosses the fold. One effect, applied
-  // to anything with .reveal (except hero lines, which have their own
-  // mask-up signature).
-  gsap.utils.toArray(".reveal").forEach((el) => {
-    if (el.closest(".hero")) return;
-    gsap.from(el, {
-      opacity: 0, y: 22, filter: "blur(10px)",
-      duration: 1.1, ease: "power3.out",
-      scrollTrigger: { trigger: el, start: "top 88%" },
-    });
-  });
-
-  // --- About scrub: word-by-word blur-to-sharp ------------------------------
-  const scrub = document.querySelector(".scrub");
-  if (scrub) {
-    scrub.innerHTML = scrub.textContent.trim().split(/\s+/).map((w) => `<span class="w">${w}</span>`).join(" ");
-    gsap.set(".scrub .w", { opacity: 0.15, filter: "blur(6px)" });
-    gsap.to(".scrub .w", {
-      opacity: 1, filter: "blur(0px)",
-      stagger: 0.1, ease: "none",
-      scrollTrigger: { trigger: scrub, start: "top 80%", end: "bottom 45%", scrub: true },
-    });
-  }
-
-  // --- CTA title reveal -----------------------------------------------------
-  if (document.querySelector(".cta-title")) {
-    gsap.from(".cta-title .line > span", {
-      yPercent: 110, duration: 1, ease: "expo.out", stagger: 0.1,
-      scrollTrigger: { trigger: ".cta", start: "top 70%" },
-    });
-  }
+  // Generic .reveal fade + about .scrub → public/assets/js/reveal.js
 
   // --- Cursor follower on project media -------------------------------------
   const cursor = document.querySelector(".cursor");
