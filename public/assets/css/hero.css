@@ -2,7 +2,8 @@
    plus the "quotes" marquee that currently lives on home. */
 
 .hero { padding: 140px var(--pad) 80px; }
-.hero-title { font-size: clamp(56px, 13vw, 220px); font-weight: 900; line-height: .9; letter-spacing: -.055em; }
+/* Matches .page-hero h1 so every page's hero reads at the same scale. */
+.hero-title { font-size: clamp(44px, 7.5vw, 112px); font-weight: 900; line-height: .95; letter-spacing: -.05em; }
 .line { display: block; overflow: hidden; padding-bottom: .04em; }
 .line > span { display: inline-block; }
 .hero-sub { margin-top: 28px; font-size: clamp(16px, 1.6vw, 20px); color: var(--muted); max-width: 640px; }
