@@ -1,7 +1,7 @@
 /* Secondary-page hero band — eyebrow mono + big headline + lede.
    Shared by every non-home page. */
 
-.page-hero { padding: 160px var(--pad) 60px; border-bottom: 1px solid var(--line); }
-.page-hero p.mono { margin-bottom: 14px; }
+.page-hero { padding: 120px var(--pad) 48px; border-bottom: 1px solid var(--line); }
+.page-hero p.mono { margin-bottom: 12px; }
 .page-hero h1 { font-size: clamp(44px, 7.5vw, 112px); font-weight: 900; line-height: .95; letter-spacing: -.05em; }
-.page-hero .lede { margin-top: 24px; max-width: 720px; font-size: clamp(18px, 2vw, 24px); color: var(--muted); line-height: 1.4; }
+.page-hero .lede { margin-top: 20px; max-width: 680px; font-size: clamp(16px, 1.6vw, 20px); color: var(--muted); line-height: 1.5; }

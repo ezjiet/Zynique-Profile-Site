@@ -3,19 +3,19 @@
 
 .site-foot {
   background: var(--dark); color: #f3f0e8;
-  padding: clamp(60px, 10vw, 140px) var(--pad) 0;
+  padding: clamp(48px, 8vw, 112px) var(--pad) 0;
   overflow: hidden;
 }
 .foot-top {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   grid-template-areas: "headline ." "intro actions";
-  column-gap: 48px; row-gap: 32px;
-  margin-bottom: 56px;
+  column-gap: 40px; row-gap: 28px;
+  margin-bottom: 48px;
 }
-.foot-headline { grid-area: headline; font-size: clamp(44px, 8vw, 128px); font-weight: 800; letter-spacing: -.045em; line-height: .95; }
+.foot-headline { grid-area: headline; font-size: clamp(36px, 6vw, 88px); font-weight: 800; letter-spacing: -.045em; line-height: .95; }
 .foot-headline em { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500; color: var(--accent); margin-left: .12em; }
-.foot-intro { grid-area: intro; align-self: end; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.5; color: #c9c4b8; max-width: 460px; }
+.foot-intro { grid-area: intro; align-self: end; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.5; color: #c9c4b8; max-width: 440px; }
 .foot-actions { grid-area: actions; display: flex; flex-wrap: wrap; gap: 12px; justify-self: end; align-self: end; }
 .foot-btn {
   display: inline-flex; align-items: center; gap: 10px;
@@ -28,16 +28,16 @@
 .foot-btn-mail:hover { background: rgba(243,240,232,.1); border-color: rgba(243,240,232,.5); }
 .foot-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #1a1200; }
 
-.foot-rule { border: 0; border-top: 1px solid rgba(243,240,232,.14); margin-bottom: 56px; }
+.foot-rule { border: 0; border-top: 1px solid rgba(243,240,232,.14); margin-bottom: 48px; }
 
 .foot-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.1fr; gap: 48px;
-  margin-bottom: clamp(60px, 10vw, 120px);
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.1fr; gap: 40px;
+  margin-bottom: clamp(48px, 8vw, 96px);
 }
 .foot-bio p { color: #c9c4b8; font-size: 14px; line-height: 1.6; max-width: 300px; }
-.foot-label { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-.foot-col ul { list-style: none; display: grid; gap: 14px; }
-.foot-col ul a { color: #f3f0e8; font-size: 16px; opacity: .85; transition: opacity .2s, color .2s; }
+.foot-label { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.foot-col ul { list-style: none; display: grid; gap: 12px; }
+.foot-col ul a { color: #f3f0e8; font-size: 15px; opacity: .85; transition: opacity .2s, color .2s; }
 .foot-col ul a:hover { opacity: 1; color: var(--accent); }
 .foot-find p { margin-bottom: 14px; }
 .foot-find a strong { font-weight: 700; }
@@ -45,7 +45,7 @@
 .foot-addr { color: #8f8a80; font-size: 14px; line-height: 1.5; }
 
 .foot-wordmark {
-  font-size: clamp(90px, 22vw, 340px);
+  font-size: clamp(72px, 18vw, 240px);
   font-weight: 900;
   letter-spacing: -.055em;
   line-height: .85;
