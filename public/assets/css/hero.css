@@ -1,7 +1,7 @@
 /* Home hero: large title, mask-up lines, parallax featured image,
    plus the "quotes" marquee that currently lives on home. */
 
-.hero { padding: 140px var(--pad) 80px; }
+.hero { padding: 110px var(--pad) 60px; }
 /* Matches .page-hero h1 so every page's hero reads at the same scale. */
 .hero-title { font-size: clamp(44px, 7.5vw, 112px); font-weight: 900; line-height: .95; letter-spacing: -.05em; }
 .line { display: block; overflow: hidden; padding-bottom: .04em; }
@@ -26,13 +26,13 @@
 .mock-verve { background: radial-gradient(circle at 20% 80%, #ffb3e6, transparent 50%), linear-gradient(120deg, #2a1033, #a23f8f); }
 
 /* Services index (home teaser row list) */
-.services { padding: 120px var(--pad); }
+.services { padding: 96px var(--pad); }
 .svc-list { list-style: none; margin-top: 24px; border-top: 1px solid var(--ink); }
 .svc {
   display: grid; grid-template-columns: 60px 1fr 1fr 40px; align-items: center; gap: 24px;
-  padding: 28px 0; border-bottom: 1px solid var(--line); cursor: pointer; transition: padding .3s, color .3s;
+  padding: 24px 0; border-bottom: 1px solid var(--line); cursor: pointer; transition: padding .3s, color .3s;
 }
-.svc h3 { font-size: clamp(26px, 4vw, 56px); font-weight: 800; letter-spacing: -.04em; }
+.svc h3 { font-size: clamp(22px, 3.2vw, 44px); font-weight: 800; letter-spacing: -.04em; }
 .svc p { color: var(--muted); }
 .svc .arrow { font-size: 28px; transition: transform .3s; }
 .svc:hover { padding-left: 16px; color: var(--accent); }
@@ -42,7 +42,7 @@
 .quotes { border-block: 1px solid var(--line); padding: 36px 0; overflow: hidden; }
 .marquee-track { display: flex; gap: 64px; width: max-content; animation: marquee 30s linear infinite; }
 .quotes:hover .marquee-track { animation-play-state: paused; }
-.marquee blockquote { font-size: clamp(22px, 2.6vw, 36px); font-weight: 600; letter-spacing: -.02em; white-space: nowrap; }
+.marquee blockquote { font-size: clamp(18px, 2vw, 28px); font-weight: 600; letter-spacing: -.02em; white-space: nowrap; }
 .marquee cite { font-style: normal; color: var(--muted); font-weight: 400; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 

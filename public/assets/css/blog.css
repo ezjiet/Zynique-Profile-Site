@@ -1,13 +1,13 @@
 /* Blog list — long dated rows of post teasers. */
 
-.blog-list { padding: 60px var(--pad) 140px; }
+.blog-list { padding: 48px var(--pad) 112px; }
 .blog-list ul { list-style: none; border-top: 1px solid var(--ink); }
 .blog-item {
-  display: grid; grid-template-columns: 120px 1fr auto; gap: 32px; align-items: baseline;
-  padding: 28px 0; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: 96px 1fr auto; gap: 28px; align-items: baseline;
+  padding: 22px 0; border-bottom: 1px solid var(--line);
 }
-.blog-item h3 { font-size: clamp(22px, 3vw, 40px); font-weight: 800; letter-spacing: -.03em; }
-.blog-item p { color: var(--muted); margin-top: 4px; }
+.blog-item h3 { font-size: clamp(20px, 2.4vw, 32px); font-weight: 800; letter-spacing: -.03em; }
+.blog-item p { color: var(--muted); margin-top: 4px; font-size: 15px; }
 .blog-item .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; }
 
 @media (max-width: 760px) {
